@@ -14,7 +14,7 @@ const Login = props => {
     const login = e => {
         e.preventDefault();
         axiosWithAuth()
-            .post("/api/login", form)
+            .post("/auth/login", form)
             .then(res => {
                 console.log(res);
                 localStorage.setItem("token", res.data.payload);
@@ -23,7 +23,7 @@ const Login = props => {
             .catch(err => {
                 console.log(err.response);
                 setForm({
-                    email: "",
+                    name: "",
                     password: ""
                 });
             });
@@ -35,9 +35,9 @@ const Login = props => {
             <form onSubmit={login}>
                 <input
                     type="text"
-                    name="email"
+                    name="name"
                     onChange={handleChange}
-                    value={form.email}
+                    value={form.name}
                 />
                 <input
                     type="password"
