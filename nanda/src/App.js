@@ -16,6 +16,7 @@ function App() {
       {/* If the user is not logged in, the Private Route will redirect to the Login */}
       {/* <PrivateRoute exact path="/" component={ParentDashboard} /> */}
       <PrivateRoute exact path="/" component={NannyDashboard} />
+      <Route path='/nannysignup' component={NannyForm}/>
      </Router>
      
     </div>
