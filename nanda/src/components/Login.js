@@ -37,13 +37,13 @@ const Login = props => {
                     type="text"
                     name="name"
                     onChange={handleChange}
-                    value={form.name}
+                    //value={form.name}
                 />
                 <input
                     type="password"
                     name="password"
                     onChange={handleChange}
-                    value={form.email}
+                    //value={form.email}
                 />
                 <button type="submit">Login</button>
             </form>
