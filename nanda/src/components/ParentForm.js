@@ -15,6 +15,7 @@ margin: 10px;
 const ParentForm = () =>{
     return (
         <div className="parent-signup">
+            <h1>Welcome to Nanda!</h1>
             <h1 className="page-title">Create your Parent Account</h1>
             <Form>
                 <div className='card'>
@@ -41,7 +42,8 @@ const ParentForm = () =>{
                         <label htmlFor="reenterpassword">ReEnter Password</label>
                     <Field type="password" name="reenterpassword" placeholder="ReEnter Password"/>
                     </Label>
-                    <button>Sign Up</button>
+                    <p>Sign Up</p>
+                    <p className='login'>Already have an account?<br/> Login</p>
                 </div>
             </Form>
         </div>
