@@ -12,10 +12,10 @@ const Form = styled.form`
 const Label = styled.label`
 margin: 10px;
 `;
-const NannyForm = () =>{
+const ParentForm = () =>{
     return (
-        <div className="nanny-signup">
-            <h1 className="page-title">Create your Nanny Account</h1>
+        <div className="parent-signup">
+            <h1 className="page-title">Create your Parent Account</h1>
             <Form>
                 <div className='card'>
                     <Label className="firstname">
@@ -47,14 +47,18 @@ const NannyForm = () =>{
         </div>
     )
 };
-const FormikNannyForm = withFormik({
-    mapPropsToValues({firstname, lastname, email}) {
+const FormikParentForm = withFormik({
+    mapPropsToValues({firstname, lastname, email, userId, password, reenterpassword}) {
         return {
             firstname : firstname || '',
             lastname: lastname || '',
             email: email || '',
+            userId: userId || '',
+            password: password || '',
+            reenterpassword: reenterpassword || ''
+
         }
     }
-})(NannyForm);
+})(ParentForm);
 
-export default FormikNannyForm;
+export default FormikParentForm;
