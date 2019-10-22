@@ -6,6 +6,8 @@ import NannyDashboard from './components/NannyDashboard';
 import ParentLogin from './components/auth/ParentLogin';
 import NannyLogin from './components/auth/NannyLogin';
 
+import NannyForm from './components/NannyForm';
+import ParentForm from './components/ParentForm';
 
 import './App.css';
 
@@ -23,14 +25,17 @@ function App() {
           <Link to="/nanny">Nanny Member Sign In</Link>
         </li>
         <li>
-          <Link to="/n">I want to use Nanda for my Nanny service scheduling!</Link>
+          <Link to="/nannysignup">I want to use Nanda for my Nanny service scheduling!</Link>
         </li>
         <li>
-          <Link to="/p">I am a Parent that needs assistance with my kids!</Link>
+          <Link to="/parentsignup">I am a Parent that needs assistance with my kids!</Link>
         </li>
       </ul>
       <Route path="/parent" component={ParentLogin} />
       <Route path="/nanny" component={NannyLogin} />
+
+      <Route exact path='/parentsignup' component={ParentForm}/>
+      <Route exact path='/nannysignup' component={NannyForm}/>
       {/* <Route exact path="/" component={ParentDashboard} /> */}
       {/* If the user is not logged in, the Private Route will redirect to the Login */}
       {/* 
@@ -42,7 +47,10 @@ function App() {
      
     </div>
   );
-}
+};
+
+
+
 
 export default App;
 
