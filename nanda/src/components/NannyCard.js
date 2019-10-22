@@ -5,7 +5,7 @@ const NannyCard = () => {
         <div className="nanny-card" >
             {" "}
             {/* Basic info displayed */}
-            <p> Name: {}</p>
+            <p> Nanny {}</p>
             <p> Age: {}</p>
             <p>Email: {}</p>
             {/* Buttons to either edit or delete */}

@@ -5,7 +5,7 @@ const ParentDashboard = () => {
     
     return (
         <div className="dashboard" >
-            <h1>Welcome!</h1>
+            <h1>Welcome Parent!</h1>
         </div>
     );
 };

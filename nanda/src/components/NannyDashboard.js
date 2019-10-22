@@ -3,7 +3,10 @@ import NannyCard from './NannyCard';
 
 const NannyDashboard = () => {
     return (
-        <NannyCard />
+        <div className="Dashboard">
+            <h1>Welcome Nanny!</h1>
+            <NannyCard />
+        </div>  
     );
 };
 

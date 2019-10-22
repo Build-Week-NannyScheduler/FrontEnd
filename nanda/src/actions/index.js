@@ -19,7 +19,7 @@ export const fetchFacts = () => dispatch => {
 
     //do some async action and dispatch an error or success action
     axiosWithAuth
-        .get('/')
+        .get('/auth/')
         .then(res => dispatch({ type: FETCH_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: FETCH_FAILURE, payload: err.response }));
 }
@@ -35,7 +35,7 @@ export const editUser = id => dispatch => {
 export const deleteUser = id => dispatch => {
     dispatch({ type: DELETE_DATA })
     axiosWithAuth
-        .post('/')
+        .delete('/')
         .then(res => dispatch({ type: DELETE_DATA_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: DELETE_DATA_FAILURE, payload: err.response }));
 }
