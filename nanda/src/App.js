@@ -36,8 +36,8 @@ function App() {
       {/* 
       user.isNanny === true ? render={<PrivateRoute exact path="/" component={NannyDashboard} />} : <PrivateRoute exact path="/" component={ParentDashboard} />
       */}
-      <PrivateRoute exact path="/p" component={ParentDashboard} />
-      <PrivateRoute exact path="/n" component={NannyDashboard} />
+      <PrivateRoute exact path="/p" component={ParentDashboard}  />
+      <PrivateRoute exact path="/n" component={NannyDashboard}  />
      </Router>
      
     </div>
