@@ -24,7 +24,7 @@ export const fetchFacts = () => dispatch => {
         .catch(err => dispatch({ type: FETCH_FAILURE, payload: err.response }));
 }
  
-export const editUser = () => dispatch => {
+export const editUser = id => dispatch => {
     dispatch({ type: POST_DATA })
     axiosWithAuth
         .post('/')
@@ -32,7 +32,7 @@ export const editUser = () => dispatch => {
         .catch(err => dispatch({ type: POST_DATA_FAILURE, payload: err.response }));
 }
 
-export const deleteUser = () => dispatch => {
+export const deleteUser = id => dispatch => {
     dispatch({ type: DELETE_DATA })
     axiosWithAuth
         .post('/')

@@ -31,40 +31,40 @@ const reducer = (state = initialState, action) => {
         case POST_DATA:
             return {
                 ...state,
-                isFetching: true,
+                addingData: true,
                 error: ''
             };
         case POST_DATA_SUCCESS:
             return {
                 ...state,
-                isFetching: false,
+                addingData: false,
                 error: '',
-                breweries: action.payload
+                data: action.payload
             };
         case POST_DATA_FAILURE:
             return {
                 ...state,
-                isFetching: false,
+                addingData: false,
                 error: action.payload
             };
 
         case DELETE_DATA:
             return {
                 ...state,
-                isFetching: true,
+                deleteData: true,
                 error: ''
             };
         case DELETE_DATA_SUCCESS:
             return {
                 ...state,
-                isFetching: false,
+                deleteData: false,
                 error: '',
-                breweries: action.payload
+                data: action.payload
             };
         case DELETE_DATA_FAILURE:
             return {
                 ...state,
-                isFetching: false,
+                deleteData: false,
                 error: action.payload
             };
         default:
