@@ -23,7 +23,7 @@ const NannyForm = () =>{
                 <div className='card'>
                     <Label className="name">
                         <label htmlFor="name">Full Name</label>
-                        <Field type='text' name="name" placeholder="First Name"/></Label>
+                        <Field type='text' name="name" placeholder="Full Name"/></Label>
                     <Label className="email">
                         <label htmlFor="email">Email Address</label>
                         <Field type="text" name="email" placeholder="Email"/>
