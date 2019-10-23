@@ -4,7 +4,7 @@ import "../App.css";
 
 const ParentCard = props => {
     return (
-        <div className="parent-card" >
+        <div className="parent-card card" >
             {/* Basic info displayed */}
             <p>{props.parent.name}</p>
             <p>Zipcode: {props.parent.zipcode}</p>
