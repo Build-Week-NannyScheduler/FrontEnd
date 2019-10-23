@@ -1,36 +1,33 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import PrivateRoute from './utils/PrivateRoute';
-import Login from './components/Login';
+
+import LandingPage from './components/LandingPage';
 import ParentDashboard from './components/ParentDashboard';
 import NannyDashboard from './components/NannyDashboard';
+import ParentLogin from './components/auth/ParentLogin';
+import NannyLogin from './components/auth/NannyLogin';
 import NannyForm from './components/NannyForm';
-import ParentForm from './components/ParentForm'
+import ParentForm from './components/ParentForm';
 
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-     <h1>NANDA</h1>
-     <Router>
-      <Route path="/login" component={Login} />
-      {/* If the user is not logged in, the Private Route will redirect to the Login */}
-      {/* 
-      user.isNanny === true ? render={<PrivateRoute exact path="/" component={NannyDashboard} />} : <PrivateRoute exact path="/" component={ParentDashboard} />
-      */}
-      {/* <PrivateRoute exact path="/" component={ParentDashboard} /> */}
-      <PrivateRoute exact path="/" component={NannyDashboard} />
-      <Route exact path='/nannysignup' component={NannyForm}/>
-      <Route exact path='/parentsignup' component={ParentForm}/>
-     </Router>
-     
+      <Router>
+      <Link exact to="/">NANDA</Link>
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/parent" component={ParentLogin} />
+          <Route exact path="/nanny" component={NannyLogin} />
+
+          <Route exact path='/parentsignup' render={() => <ParentForm />}/>
+          <Route exact path='/nannysignup' component={NannyForm}/>
+        </Switch>
+      </Router>
     </div>
   );
 };
-
-
-
-
+        
 export default App;
-

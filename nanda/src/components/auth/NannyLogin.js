@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import axiosWithAuth from '../utils/axiosWithAuth';
+import axiosWithAuth from '../../utils/axiosWithAuth';
 
-const Login = props => {
+import NannyDashboard from '../NannyDashboard';
+
+const NannyLogin = props => {
     const [form, setForm] = useState({
         email: "",
         password: ""
@@ -11,7 +13,7 @@ const Login = props => {
         setForm({...form, [e.target.name]: e.target.value })
     };
 
-    const login = e => {
+    const nannyLogin = e => {
         e.preventDefault();
         axiosWithAuth()
             .post("/auth/login", form)
@@ -31,8 +33,8 @@ const Login = props => {
 
     return (
         <div>
-            <h2>Happy you are here!</h2>
-            <form onSubmit={login}>
+            <h2>Hello Nanny!</h2>
+            <form onSubmit={NannyDashboard}>
                 <input
                     type="text"
                     name="name"
@@ -51,4 +53,4 @@ const Login = props => {
     );
 };
 
-export default Login;
+export default NannyLogin;
