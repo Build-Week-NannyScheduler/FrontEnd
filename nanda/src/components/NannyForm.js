@@ -68,4 +68,5 @@ const FormikNannyForm = withFormik({
     }
 })(NannyForm);
 
-export default connect(FormikNannyForm, {})(NannyForm);
+export default connect(null, {})(NannyForm);
+
