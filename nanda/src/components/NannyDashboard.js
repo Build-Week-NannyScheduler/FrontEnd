@@ -2,11 +2,15 @@ import React from 'react';
 import NannyCard from './NannyCard';
 import { connect } from "net";
 
-const NannyDashboard = () => {
+const NannyDashboard = ({ nanny}) => {
     return (
-        <div className="Dashboard">
+        <div className="dashboard">
             <h1>Welcome Nanny!</h1>
-            <NannyCard />
+            <NannyCard className="card"
+                            key={nanny.id}
+                            nanny={nanny}
+                            // deleteParent={deleteParent}
+                            />
         </div>  
     );
 };
