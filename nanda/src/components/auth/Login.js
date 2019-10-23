@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import axiosWithAuth from '../../utils/axiosWithAuth';
 
 import NannyDashboard from '../NannyDashboard';
 
-const NannyLogin = props => {
+const Login = props => {
     const [form, setForm] = useState({
-        email: "",
+        username: "",
         password: ""
     });
 
@@ -13,19 +14,19 @@ const NannyLogin = props => {
         setForm({...form, [e.target.name]: e.target.value })
     };
 
-    const nannyLogin = e => {
+    const Login = e => {
         e.preventDefault();
         axiosWithAuth()
             .post("/auth/login", form)
             .then(res => {
                 console.log(res);
                 localStorage.setItem("token", res.data.payload);
-                props.history.push("/");
+                props.history.push("/choice");
             })
             .catch(err => {
                 console.log(err.response);
                 setForm({
-                    name: "",
+                    username: "",
                     password: ""
                 });
             });
@@ -33,24 +34,26 @@ const NannyLogin = props => {
 
     return (
         <div>
-            <h2>Hello Nanny!</h2>
-            <form onSubmit={NannyDashboard}>
+            <h2>Login</h2>
+            <form onSubmit={Login}>
                 <input
                     type="text"
-                    name="name"
+                    name="username"
                     onChange={handleChange}
-                    //value={form.name}
+                    value={form.username}
                 />
                 <input
                     type="password"
                     name="password"
                     onChange={handleChange}
-                    //value={form.email}
+                    value={form.password}
                 />
                 <button type="submit">Login</button>
             </form>
+
+            <Link to="/signup" >Don't have an account yet?</Link> 
         </div>
     );
 };
 
-export default NannyLogin;
+export default Login;

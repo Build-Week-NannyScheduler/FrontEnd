@@ -1,9 +1,10 @@
 import React from "react";
-import {Route} from "react-router-dom";
-import { withFormik, Field } from "formik";
+import { Link } from "react-router-dom";
+import {  withFormik, Field } from "formik";
 import styled from "styled-components";
 import "../App.css";
-import { connect } from "net";
+import { connect } from 'react-redux';
+
 
 const Form = styled.form`
     display: flex;
@@ -14,7 +15,7 @@ const Form = styled.form`
 const Label = styled.label`
 margin: 10px;
 `;
-const NannyForm = () =>{
+export const NannyForm = () => {
     return (
         <div className="nanny-signup">
             <h1>Welcome to Nanda!</h1>
@@ -42,8 +43,9 @@ const NannyForm = () =>{
                             <option value="Overnight">Overnight</option>
                         </Field>
                     </Label>
-                    <Label className="driveKids">Are you able to transport childrent to a different location if needed? <br />
-                     <label htmlFor="transport">Yes</label>   <Field type="checkbox" name="transportYes"></Field>
+                    <Label className="driveKids">Are you able to transport childrent to a different location if needed? 
+                    <br />
+                     {/* <label htmlFor="transport">Yes</label>   <Field type="checkbox" name="transportYes" value="canDrive"></Field> */}
                      <label htmlFor="transport">No</label>   <Field type="checkbox" name="transportNo"></Field>
                     </Label>
                     <Label className="TOS">
@@ -58,19 +60,15 @@ const NannyForm = () =>{
         </div>
     )
 };
-const FormikNannyForm = withFormik({
+export const FormikNannyForm = withFormik({
     mapPropsToValues({name, email, zipcode, availability}) {
         return {
             name : name || '',
-            
             email: email || '',
+            zipcode: zipcode,
+            timeAvail: availability
         }
     }
 })(NannyForm);
 
-<<<<<<< HEAD
-export default connect(null, {})(NannyForm);
-=======
-export default connect(null, {})(NannyForm);
-
->>>>>>> 5f37f24efa2546785cbfe5d834a3e5c7c78504ff
+// export default connect(null, {})(FormikNannyForm);

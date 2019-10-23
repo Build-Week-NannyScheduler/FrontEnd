@@ -8,10 +8,10 @@ const ParentCard = props => {
             <p>Zipcode: {props.parent.zipcode}</p>
             <p>Number of kids: {props.parent.numKids}</p>
             {/* Buttons to either edit or delete */}
-            <button onClick={() => editParent()}>EDIT</button>
-            <button onClick={() => deleteParent()}>DELETE</button>
+            {/* <button onClick={e => editParent(e, props.parent.id)}>EDIT</button>
+            <button onClick={e => deleteParent(e, props.parent.id)}>DELETE</button> */}
         </div>
     );
 };
 
-export default connect(editParent, deleteParent, {})(ParentCard);
+export default ParentCard;

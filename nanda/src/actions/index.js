@@ -7,13 +7,13 @@ export const START_FETCHING = 'START_FETCHING';
 export const FETCH_SUCCESS = 'FETCH_SUCCESS';
 export const FETCH_FAILURE = 'FETCH_FAILURE';
 
-export const POST_DATA = 'POST_DATA';
-export const POST_DATA_SUCCESS = 'POST_DATA_SUCCESS';
-export const POST_DATA_FAILURE = 'POST_DATA_FAILURE';
+// export const POST_DATA = 'POST_DATA';
+// export const POST_DATA_SUCCESS = 'POST_DATA_SUCCESS';
+// export const POST_DATA_FAILURE = 'POST_DATA_FAILURE';
 
-export const DELETE_DATA = 'DELETE_DATA';
-export const DELETE_DATA_SUCCESS = 'DELETE_DATA_SUCCESS';
-export const DELETE_DATA_FAILURE = 'DELETE_DATA_FAILURE';
+// export const DELETE_DATA = 'DELETE_DATA';
+// export const DELETE_DATA_SUCCESS = 'DELETE_DATA_SUCCESS';
+// export const DELETE_DATA_FAILURE = 'DELETE_DATA_FAILURE';
 
 export const FETCH_PARENT = 'FETCH_PARENT';
 export const FETCH_PARENT_SUCCESS = 'FETCH_PARENT_SUCCESS';
@@ -48,36 +48,28 @@ export const DELETE_NANNY_SUCCESS = 'DELETE_NANNY_SUCCESS';
 export const DELETE_NANNY_FAILURE  = 'DELETE_NANNY_FAILURE';
 
 
-export const fetchFacts = () => dispatch => {
+export const fetchUser = () => dispatch => {
     dispatch({ type: START_FETCHING });
     axiosWithAuth
         .get('/auth/')
         .then(res => dispatch({ type: FETCH_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: FETCH_FAILURE, payload: err.response }));
 };
- 
-export const editUser = id => dispatch => {
-    dispatch({ type: POST_DATA })
+
+export const registerParent = () => dispatch => {
+    dispatch({ type: POST_PARENT });
     axiosWithAuth
-        .post('/', )
-        .then(res => dispatch({ type: POST_DATA_SUCCESS, payload: res.data }))
-        .catch(err => dispatch({ type: POST_DATA_FAILURE, payload: err.response }));
+        .get('/user/parent')
+        .then(res => dispatch({ type: POST_PARENT_SUCCESS, payload: res.data }))
+        .catch(err => dispatch({ type: POST_PARENT_FAILURE, payload: err.response }));
 };
 
-export const deleteUser = id => dispatch => {
-    dispatch({ type: DELETE_DATA })
-    axiosWithAuth
-        .delete('/', )
-        .then(res => dispatch({ type: DELETE_DATA_SUCCESS, payload: res.data }))
-        .catch(err => dispatch({ type: DELETE_DATA_FAILURE, payload: err.response }));
-};
-
-export const fetchParents = () => dispatch => {
-    dispatch({ type: START_FETCHING });
+export const fetchParent = () => dispatch => {
+    dispatch({ type: FETCH_NANNY });
     axiosWithAuth
         .get('/auth/')
-        .then(res => dispatch({ type: FETCH_SUCCESS, payload: res.data }))
-        .catch(err => dispatch({ type: FETCH_FAILURE, payload: err.response }));
+        .then(res => dispatch({ type: FETCH_NANNY_SUCCESS, payload: res.data }))
+        .catch(err => dispatch({ type: FETCH_NANNY_FAILURE, payload: err.response }));
 };
  
 export const editParent = id => dispatch => {
@@ -96,8 +88,16 @@ export const deleteParent = id => dispatch => {
         .catch(err => dispatch({ type: DELETE_PARENT_FAILURE, payload: err.response }));
 };
 
+export const registerNannie = () => dispatch => {
+    dispatch({ type: POST_NANNY });
+    axiosWithAuth
+        .get('/user/nanny')
+        .then(res => dispatch({ type: POST_NANNY_SUCCESS, payload: res.data }))
+        .catch(err => dispatch({ type: POST_NANNY_FAILURE, payload: err.response }));
+};
+
 export const fetchNannies = () => dispatch => {
-    dispatch({ type: START_FETCHING });
+    dispatch({ type: FETCH_NANNY });
     axiosWithAuth
         .get('/auth/')
         .then(res => dispatch({ type: FETCH_SUCCESS, payload: res.data }))

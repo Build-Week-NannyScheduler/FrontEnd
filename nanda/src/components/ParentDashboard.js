@@ -5,28 +5,33 @@ import Loader from 'react-loader-spinner';
 import ParentCard from './ParentCard';
 
 
-const ParentDashboard = ({ parent }) => {
-    
+const ParentDashboard = props => {
+    console.log("PARENT DASHBD ", props);
+
+    // useEffect(() => {
+    //     props.fetchParent();
+    // }, []);
 
     return (
         <div className="dashboard" >
-            <h2>{props.parent.name}</h2>
+            <h2>Parent here</h2>
             <div className="nanny-list'">
                 <h2>This is the Parent Dashboard!</h2>
                 <hr/>
-                {props.isFetching ? (
+                {props.fetchParent ? (
                     <Loader type="Circles" 
                             color="navy" 
                             height={80} 
                             width={80} 
                     />) :
                     <ul>
-                        <ParentCard 
+                        {/* <ParentCard 
                             className="card"
                             key={parent.id}
                             parent={parent}
-                            deleteParent={deleteParent}
-                            />
+                            // editParent={editParent}
+                            // deleteParent={deleteParent}
+                            /> */}
                     </ul>
                 }
             </div>
@@ -37,7 +42,6 @@ const ParentDashboard = ({ parent }) => {
 
 const mapStateToProps = state => ({
     isFetching: true,
-    // nannyRequest: true,
-    // nanny: state.nanny.id
+    
 });
-export default connect(mapStateToProps, { fetchParents })(ParentDashboard);
+export default connect(mapStateToProps, {  })(ParentDashboard);

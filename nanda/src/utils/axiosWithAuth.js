@@ -1,11 +1,11 @@
 import axios from "axios";
 
 export default function axiosWithAuth() {
-
+    const token = localStorage.getItem("token");
     return axios.create({
-        baseURL: "https://nannytracker.herokuapp.com/",
+        baseURL: "https://nannytracker2.herokuapp.com/",
         headers: {
-            Authorization: localStorage.getItem("token")
+            'Authorization': token,
         }
     })
 }
