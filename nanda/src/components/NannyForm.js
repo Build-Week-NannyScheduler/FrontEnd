@@ -4,6 +4,7 @@ import { withFormik, Field } from "formik";
 import styled from "styled-components";
 import "../App.css";
 import { connect } from "net";
+import NannyCard from "./NannyCard";
 
 const Form = styled.form`
     display: flex;
@@ -51,8 +52,8 @@ const NannyForm = () =>{
                         <Field type="checkbox" name='TOS'></Field>
                     </Label>
 
-                    <p>Save</p>
-                    <p >Cancel</p>
+                    <p className='button'>Save</p>
+                    <p className='button'>Cancel</p>
                 </div>
             </Form>
         </div>
@@ -68,5 +69,6 @@ const FormikNannyForm = withFormik({
     }
 })(NannyForm);
 
-export default connect(null, {})(NannyForm);
+export default FormikNannyForm;
+// connect(FormikNannyForm, {})(NannyForm);
 

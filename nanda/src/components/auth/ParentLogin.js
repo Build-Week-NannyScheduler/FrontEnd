@@ -31,19 +31,21 @@ const ParentLogin = props => {
     };
 
     return (
-        <div>
+        <div className='card'>
             <h2>Hello Parent!</h2>
             <form onSubmit={ParentDashboard}>
-                <input
+                <input className="login"
                     type="text"
                     name="name"
                     onChange={handleChange}
+                    placeholder="UserName"
                     //value={form.name}
                 />
-                <input
+                <input className="login"
                     type="password"
                     name="password"
                     onChange={handleChange}
+                    placeholder="Password"
                     //value={form.email}
                 />
                 <button type="submit">Login</button>

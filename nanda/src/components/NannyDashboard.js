@@ -1,5 +1,6 @@
 import React from 'react';
 import NannyCard from './NannyCard';
+import { connect } from "net";
 
 const NannyDashboard = () => {
     return (
@@ -10,4 +11,5 @@ const NannyDashboard = () => {
     );
 };
 
-export default connect(null, {})(NannyDashboard);
+export default NannyDashboard;
+// connect(null, {})(NannyDashboard);

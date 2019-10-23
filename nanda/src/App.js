@@ -7,7 +7,7 @@ import ParentDashboard from './components/ParentDashboard';
 import NannyDashboard from './components/NannyDashboard';
 import ParentLogin from './components/auth/ParentLogin';
 import NannyLogin from './components/auth/NannyLogin';
-import {NannyForm} from './components/NannyForm';
+import NannyForm from "./components/NannyForm";
 import ParentForm from './components/ParentForm';
 
 import './App.css';
@@ -23,7 +23,8 @@ function App() {
           <Route exact path="/nanny" component={NannyLogin} />
 
           <Route exact path='/parentsignup' render={() => <ParentForm />}/>
-          {/* <Route exact path='/nannysignup' render={() => <NannyForm />}/> */}
+          <Route exact path='/nannysignup' component={NannyForm}/>
+          <Route exact path='/nannydashboard' component={NannyDashboard}/>
         </Switch>
       </Router>
     </div>

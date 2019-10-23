@@ -1,13 +1,23 @@
 import React from 'react';
+import { connect } from "net";
+import "../App.css";
 
-const NannyCard = () => {
+const NannyCard = (props) => {
+    console.log(props)
     return (
         <div className="nanny-card" >
             {" "}
             {/* Basic info displayed */}
-            <p> Nanny {}</p>
-            <p> Age: {}</p>
+            <h4>Welcome (name)!</h4>
+            <p>Name: {}</p>            
             <p>Email: {}</p>
+            <p>Time Available: {}</p>
+            <p>Drive: {}</p>
+            <label> Incoming messages</label>
+            <input type="textarea"></input>
+
+            <p className="button">Edit</p>
+            <p className="button">Delete</p>
             {/* Buttons to either edit or delete */}
             {/* <button onClick={() => editProfile(}>EDIT</button>{" "}
             <button onClick={() => deleteProfile()}>DELETE</button>{" "}
@@ -17,4 +27,5 @@ const NannyCard = () => {
     );
 };
 
-export default connect(null, {})(NannyCard);
+export default NannyCard;
+// connect(null, {})(NannyCard);
