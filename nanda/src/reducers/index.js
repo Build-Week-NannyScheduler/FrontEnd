@@ -15,21 +15,25 @@ const initialState = {
     deleteParent: false,
     deleteNanny: false,
     nannyRequest: false,
+    nannyAccept: null,
     error: '',
     currentUser: {
 
     },
     nannies: [{
         name: "",
-        age: 18,
         email: "",
-        zipcode: ""
+        zipcode: "",
+        timeAvail: "",
+        canDrive: false,
+        likesJob: null
     }],
     parents: [{
         name: "",
         numKids: 0,
         email: "",
-        zipcode: ""
+        zipcode: "",
+        nannyRequest: null
     }],
 };
 

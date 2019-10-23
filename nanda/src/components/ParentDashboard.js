@@ -23,11 +23,11 @@ const ParentDashboard = props => {
           <ul>{props.parents.filter(parent.id => {
             return (
             
-                <SmurfCard 
+                <ParentCard 
                 className="card"
-                key={smurf.id}
-                smurf={smurf}
-                deleteSmurf={deleteSmurf}
+                key={parent.id}
+                parent={parent}
+                deleteParent={deleteParent}
                 />
             )
           })}
