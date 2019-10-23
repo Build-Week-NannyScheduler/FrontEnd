@@ -1,14 +1,16 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { connect } from "net";
 import "../App.css";
+import axios from "axios";
+
 
 const NannyCard = (props) => {
-    console.log(props)
+    console.log("this is props", props)
     return (
         <div className="nanny-card" >
             {" "}
             {/* Basic info displayed */}
-            <h4>Welcome (name)!</h4>
+            <h4>Welcome {props.name}!</h4>
             <p>Name: {}</p>            
             <p>Email: {}</p>
             <p>Time Available: {}</p>

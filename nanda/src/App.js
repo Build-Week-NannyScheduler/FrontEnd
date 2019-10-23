@@ -21,7 +21,7 @@ function App() {
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/parent" component={ParentLogin} />
           <Route exact path="/nanny" component={NannyLogin} />
-          <Route exact path="/parentdashboard" component={ParentDashboard}/>
+          {/* <Route exact path="/parentdashboard" component={ParentDashboard}/> */}
           <Route exact path='/parentsignup' render={() => <ParentForm />}/>
           <Route exact path='/nannysignup' render={() => <NannyForm />}/>
           <Route exact path='/nannydashboard' component={NannyDashboard}/>

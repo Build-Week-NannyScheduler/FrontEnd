@@ -5,6 +5,8 @@ import styled from "styled-components";
 import "../App.css";
 import { connect } from "net";
 import NannyCard from "./NannyCard";
+import * as Yup from "yup" ;
+import axios from "axios";
 
 const Form = styled.form`
     display: flex;
@@ -15,7 +17,7 @@ const Form = styled.form`
 const Label = styled.label`
 margin: 10px;
 `;
-const NannyForm = () =>{
+const NannyForm = ({values, touched, errors}) =>{
     return (
         <div className="nanny-signup">
             <h1>Welcome to Nanda!</h1>
@@ -35,7 +37,7 @@ const NannyForm = () =>{
                     </Label>
                     <Label className="time-available">
                         <h3>What is your general availability?</h3>
-                        <Field component="select" className="availability" name="availability">
+                        <Field component="select" className="timeAvail" name="timeAvail">
                             <option>Choose an option</option>
                             <option value="Morning">Morning</option>
                             <option value="Afternoon">Afternoon</option>
@@ -43,9 +45,9 @@ const NannyForm = () =>{
                             <option value="Overnight">Overnight</option>
                         </Field>
                     </Label>
-                    <Label className="driveKids">Are you able to transport childrent to a different location if needed? <br />
-                     <label htmlFor="transport">Yes</label>   <Field type="checkbox" name="transportYes"></Field>
-                     <label htmlFor="transport">No</label>   <Field type="checkbox" name="transportNo"></Field>
+                    <Label className="driveKids">Are you able to canDrive childrent to a different location if needed? <br />
+                     <label htmlFor="canDrive">Yes</label>   <Field type="checkbox" name="canDriveYes"></Field>
+                     <label htmlFor="canDrive">No</label>   <Field type="checkbox" name="canDriveNo"></Field>
                     </Label>
                     <Label className="TOS">
                         <label htmlFor="TOS">Click here to accept the Terms of Service</label>
@@ -60,13 +62,25 @@ const NannyForm = () =>{
     )
 };
 const FormikNannyForm = withFormik({
-    mapPropsToValues({name, email, zipcode, availability}) {
+    mapPropsToValues({name, email, zipcode, timeAvail, canDrive}) {
         return {
-            name : name || '',
-            
+            name : name || '',            
             email: email || '',
+            zipcode: zipcode || '',
+            timeAvail: timeAvail || '',
+            canDrive: canDrive || false
+        };
+    },
+    validationSchema: Yup.object().shape({
+        zipcode: Yup.string().required(),
+        timeAvail: Yup.string().oneOf(["Morning", "Afternoon", "Evening", "Overnight"]),
+        
+    }),
+    handleSubmit(values, {setNanny}) { 
+        axios.post('https://nannytracker2.herokuapp.com/user/nanny', values) 
+              .then(res => { setNanny(res.data); }) 
+              .catch(err => console.log(err.response));
         }
-    }
 })(NannyForm);
 
 
