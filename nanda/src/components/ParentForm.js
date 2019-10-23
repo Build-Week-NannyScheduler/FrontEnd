@@ -49,8 +49,8 @@ const ParentForm = () =>{
                         <label htmlFor="TOS">Click here to accept the Terms of Service</label>
                         <Field type="checkbox" name='TOS'></Field>
                     </Label>
-                    <p>Save</p>
-                    <p> Cancel</p>
+                    <p className='button'>Save</p>
+                    <p className='button'>Cancel</p>
                 </div>
             </Form>
         </div>

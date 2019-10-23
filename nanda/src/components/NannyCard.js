@@ -1,15 +1,25 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, {useState} from 'react';
+import { connect } from "net";
+import "../App.css";
+import axios from "axios";
 
 
-const NannyCard = () => {
+const NannyCard = (props) => {
+    console.log("this is props", props)
     return (
         <div className="nanny-card" >
             {" "}
             {/* Basic info displayed */}
-            <p> Nanny {}</p>
-            <p> Age: {}</p>
-            <p>Email: {}</p>
+            <h4>Welcome {props.name}!</h4>
+            <p>Name: {props.name}</p>            
+            <p>Email: {props.email}</p>
+            <p>Time Available: {props.available}</p>
+            <p>Drive: {}</p>
+            <label> Incoming messages</label>
+            <input type="textarea"></input>
+
+            <p className="button">Edit</p>
+            <p className="button">Delete</p>
             {/* Buttons to either edit or delete */}
             {/* <button onClick={() => editProfile(}>EDIT</button>{" "}
             <button onClick={() => deleteProfile()}>DELETE</button>{" "}
@@ -19,4 +29,5 @@ const NannyCard = () => {
     );
 };
 
-export default connect(null, {})(NannyCard);
+export default NannyCard;
+// connect(null, {})(NannyCard);
