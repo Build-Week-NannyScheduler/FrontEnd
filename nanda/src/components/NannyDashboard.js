@@ -8,23 +8,24 @@ const NannyDashboard = () => {
 
     useEffect(() =>{
         axios
-        .get('https://nannytracker2.herokuapp.com/user/nanny')
+        .get(`https://nannytracker2.herokuapp.com/user/nanny/`)
         .then(response => {(console.log(response.data));
-        setNanny(response.data);}
-        )},[])
+        setNanny(response.data);
+        })},[])
 
     return (
         <div className="dashboard">
-            <h1>Welcome Nanny!</h1>
-            nanny.filter(item =>)
+            <h1>Welcome Nanny!</h1>  
+            {nanny.map(nanny => (        
             <NannyCard className="card"
                             key={nanny.id}
-                            // email={email}
-                            // name={name}
-                            // available={availability_start}
+                            email={nanny.email}
+                            name={nanny.name}
+                            available={nanny.availability_start}
 
-                            // deleteParent={deleteParent}
+                            deleteParent={nanny.deleteParent}
                             />
+            ))}  
         </div>  
     );
 }

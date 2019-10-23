@@ -54,8 +54,8 @@ const NannyForm = ({values, touched, errors}) =>{
                         <Field type="checkbox" name='TOS'></Field>
                     </Label>
 
-                    <p className='button'>Save</p>
-                    <p className='button'>Cancel</p>
+                    <button className='button'type="submit">Save</button>
+                    <button className='button'>Cancel</button>
                 </div>
             </Form>
         </div>
@@ -76,10 +76,11 @@ const FormikNannyForm = withFormik({
         timeAvail: Yup.string().oneOf(["Morning", "Afternoon", "Evening", "Overnight"]),
         
     }),
-    handleSubmit(values, {setNanny}) { 
+    handleSubmit(values, {setNanny, nanny}) { 
         axios.post('https://nannytracker2.herokuapp.com/user/nanny', values) 
-              .then(res => { setNanny(res.data); }) 
-              .catch(err => console.log(err.response));
+              .then(res => console.log(res.data)) 
+              
+            //   .catch(err => console.log(err.response));
         }
 })(NannyForm);
 
@@ -88,3 +89,4 @@ export default FormikNannyForm;
 // connect(FormikNannyForm, {})(NannyForm);
 
 
+// { setNanny(res.data); }

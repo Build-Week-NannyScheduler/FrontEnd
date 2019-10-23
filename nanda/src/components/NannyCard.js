@@ -11,9 +11,9 @@ const NannyCard = (props) => {
             {" "}
             {/* Basic info displayed */}
             <h4>Welcome {props.name}!</h4>
-            <p>Name: {}</p>            
-            <p>Email: {}</p>
-            <p>Time Available: {}</p>
+            <p>Name: {props.name}</p>            
+            <p>Email: {props.email}</p>
+            <p>Time Available: {props.available}</p>
             <p>Drive: {}</p>
             <label> Incoming messages</label>
             <input type="textarea"></input>
