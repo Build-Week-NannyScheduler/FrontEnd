@@ -16,49 +16,53 @@ const ParentForm = () =>{
     return (
         <div className="parent-signup">
             <h1>Welcome to Nanda!</h1>
-            <h1 className="page-title">Create your Parent Account</h1>
+            <h1 className="page-title">Create your Parent Profile</h1>
             <Form>
                 <div className='card'>
-                    <Label className="firstname">
-                        <label htmlFor="firstname">First Name</label>
-                        <Field type='text' name="firstname" placeholder="First Name"/></Label>
-                    <Label className="lastname">
-                        <label htmlFor="lastname">Last Name</label>
-                        <Field type='text' name="lastname" placeholder="Last Name"/>
-                    </Label>
+                    <Label className="name">
+                        <label htmlFor="name">Name</label>
+                        <Field type='text' name="name" placeholder="Full Name"/></Label>
                     <Label className="email">
                         <label htmlFor="email">Email Address</label>
                         <Field type="text" name="email" placeholder="Email"/>
                     </Label>
-                    <Label className="UserId">
-                        <label htmlFor="userId">User Id</label>
-                        <Field type="text" name="userId" placeholder="User ID"/>
+                    <Label className="zipcode">
+                        <label htmlFor="zipcode">Zip Code</label>
+                        <Field type="text" name="zipcode" placeholder="Zip Code"/>
                     </Label>
-                        <Label className="password">
-                        <label htmlFor="password">Password</label>
-                    <Field type="password" name="password" placeholder="Enter Password"/>
+                    <Label className="numKids">
+                        <Field component="select" name="numKids">
+                            <option>Choose an option</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10+">10+</option>
+                        </Field>
                     </Label>
-                    <Label className="reenterpassword">
-                        <label htmlFor="reenterpassword">ReEnter Password</label>
-                    <Field type="password" name="reenterpassword" placeholder="ReEnter Password"/>
+                    <Label className="TOS">
+                        <label htmlFor="TOS">Click here to accept the Terms of Service</label>
+                        <Field type="checkbox" name='TOS'></Field>
                     </Label>
-                    <p>Sign Up</p>
-                    <p className='login'>Already have an account?<br/> Login</p>
+                    <p>Save</p>
+                    <p> Cancel</p>
                 </div>
             </Form>
         </div>
     )
 };
 const FormikParentForm = withFormik({
-    mapPropsToValues({firstname, lastname, email, userId, password, reenterpassword}) {
+    mapPropsToValue({name, email, zipcode, numKids}) {
         return {
-            firstname : firstname || '',
-            lastname: lastname || '',
+            name: name || '',
             email: email || '',
-            userId: userId || '',
-            password: password || '',
-            reenterpassword: reenterpassword || ''
-
+            zipcode: zipcode || '',
+            numKids: numKids || '',
         }
     }
 })(ParentForm);

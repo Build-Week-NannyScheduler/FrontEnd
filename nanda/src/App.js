@@ -23,7 +23,7 @@ function App() {
           <Route exact path="/nanny" component={NannyLogin} />
 
           <Route exact path='/parentsignup' render={() => <ParentForm />}/>
-          <Route exact path='/nannysignup' component={NannyForm}/>
+          {/* <Route exact path='/nannysignup' render={() => <NannyForm />}/> */}
         </Switch>
       </Router>
     </div>
