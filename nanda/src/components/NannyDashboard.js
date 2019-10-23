@@ -10,4 +10,4 @@ const NannyDashboard = () => {
     );
 };
 
-export default NannyDashboard;
+export default connect(null, {})(NannyDashboard);

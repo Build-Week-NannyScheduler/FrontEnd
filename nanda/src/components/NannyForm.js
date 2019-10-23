@@ -3,6 +3,7 @@ import {Route} from "react-router-dom";
 import { withFormik, Field } from "formik";
 import styled from "styled-components";
 import "../App.css";
+import { connect } from "net";
 
 const Form = styled.form`
     display: flex;
@@ -67,4 +68,4 @@ const FormikNannyForm = withFormik({
     }
 })(NannyForm);
 
-export default FormikNannyForm;
+export default connect(FormikNannyForm, {})(NannyForm);
