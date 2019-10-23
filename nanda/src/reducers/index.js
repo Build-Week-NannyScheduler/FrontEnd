@@ -1,3 +1,6 @@
+// WHAT DOES A REDUCER DO?
+// It calculates the next state tree based on the previous state tree and the action dispatched to make it happen.
+
 import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE, 
     FETCH_PARENT, FETCH_PARENT_SUCCESS, FETCH_PARENT_FAILURE,     
     POST_PARENT, POST_PARENT_SUCCESS, POST_PARENT_FAILURE, 
@@ -17,23 +20,22 @@ const initialState = {
     nannyRequest: false,
     nannyAccept: null,
     error: '',
-    currentUser: {
-
-    },
     nannies: [{
         name: "",
         email: "",
         zipcode: "",
         timeAvail: "",
         canDrive: false,
-        likesJob: null
+        approveContact: null,
+        id: ""
     }],
     parents: [{
         name: "",
         numKids: 0,
         email: "",
         zipcode: "",
-        nannyRequest: null
+        nannyRequest: false,
+        id: ""
     }],
 };
 

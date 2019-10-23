@@ -17,4 +17,4 @@ const NannyCard = () => {
     );
 };
 
-export default NannyCard;
+export default connect(null, {})(NannyCard);
