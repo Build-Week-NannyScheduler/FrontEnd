@@ -21,12 +21,8 @@ const NannyForm = () =>{
             <Form>
                 <div className='card'>
                     <Label className="firstname">
-                        <label htmlFor="firstname">First Name</label>
+                        <label htmlFor="firstname">Full Name</label>
                         <Field type='text' name="firstname" placeholder="First Name"/></Label>
-                    <Label className="lastname">
-                        <label htmlFor="lastname">Last Name</label>
-                        <Field type='text' name="lastname" placeholder="Last Name"/>
-                    </Label>
                     <Label className="email">
                         <label htmlFor="email">Email Address</label>
                         <Field type="text" name="email" placeholder="Email"/>
@@ -35,26 +31,23 @@ const NannyForm = () =>{
                         <label htmlFor="userId">Zip Code</label>
                         <Field type="text" name="userId" placeholder="User ID"/>
                     </Label>
-                        <Label className="time-available">
-                            <h3>Times you are available</h3>
-                            <label htmlFor="timeavailable">Monday<br/>
-                            <label>From </label><Field type="time" name="timeavailablefrom"/><label> to</label><Field type="time" name="timeavailableto"/></label><br/>
-                            <label htmlFor="timeavailable">Tuesday<br/>
-                            <label>From </label><Field type="time" name="timeavailablefrom"/><label> to</label><Field type="time" name="timeavailableto"/></label><br/>
-                            <label htmlFor="timeavailable">Wednesday<br/>
-                            <label>From </label><Field type="time" name="timeavailablefrom"/><label> to</label><Field type="time" name="timeavailableto"/></label><br/>
-                            <label htmlFor="timeavailable">Thursday<br/>
-                            <label>From </label><Field type="time" name="timeavailablefrom"/><label> to</label><Field type="time" name="timeavailableto"/></label><br/>
-                            <label htmlFor="timeavailable">Friday<br/>
-                            <label>From </label><Field type="time" name="timeavailablefrom"/><label> to</label><Field type="time" name="timeavailableto"/></label><br/>
-                            <label htmlFor="timeavailable">Saturday<br/>
-                            <label>From </label><Field type="time" name="timeavailablefrom"/><label> to</label><Field type="time" name="timeavailableto"/></label><br/>
-                            <label htmlFor="timeavailable">Sunday<br/>
-                            <label>From </label><Field type="time" name="timeavailablefrom"/><label> to</label><Field type="time" name="timeavailableto"/></label><br/>
+                    <Label className="time-available">
+                        <h3>What is your general availability?</h3>
+                        <Field component="select" className="food-select" name="diet">
+                            <option>Choose an option</option>
+                            <option value="Morning">Morning</option>
+                            <option value="Afternoon">Afternoon</option>
+                            <option value="Evening">Evening</option>
+                            <option value="Overnight">Overnight</option>
+                        </Field>
                     </Label>
-                    
-                    <p>Sign Up</p>
-                    <p className='login'>Already have an account?<br/> Login</p>
+                    <Label className="driveKids">Are you able to transport childrent to a different location if needed? <br />
+                     <label htmlFor="transport">Yes</label>   <Field type="checkbox" name="transportYes"></Field>
+                     <label htmlFor="transport">No</label>   <Field type="checkbox" name="transportNo"></Field>
+                    </Label>
+
+                    <p>Save</p>
+                    <p >Cancel</p>
                 </div>
             </Form>
         </div>
