@@ -57,8 +57,7 @@ export const fetchFacts = () => dispatch => {
 export const editUser = id => dispatch => {
     dispatch({ type: POST_DATA })
     axiosWithAuth
-        .post('/', {
-        })
+        .post('/', )
         .then(res => dispatch({ type: POST_DATA_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: POST_DATA_FAILURE, payload: err.response }));
 };
