@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axiosWithAuth from '../../utils/axiosWithAuth';
 
+
 import NannyDashboard from '../NannyDashboard';
 
 const Login = props => {
@@ -33,7 +34,7 @@ const Login = props => {
     };
 
     return (
-        <div>
+        <div className="card">
             <h2>Login</h2>
             <form onSubmit={Login}>
                 <input

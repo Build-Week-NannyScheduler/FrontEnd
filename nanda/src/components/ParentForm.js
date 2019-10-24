@@ -30,7 +30,7 @@ const ParentForm = () =>{
                         <label htmlFor="zipcode">Zip Code</label>
                         <Field type="text" name="zipcode" placeholder="Zip Code"/>
                     </Label>
-                    <Label className="numKids">
+                    <Label className="numKids"><label>Number of Children</label>
                         <Field component="select" name="numKids">
                             <option>Choose an option</option>
                             <option value="1">1</option>

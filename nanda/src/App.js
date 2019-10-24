@@ -6,9 +6,6 @@ import ChoicePage from './components/ChoicePage';
 import ParentDashboard from './components/ParentDashboard';
 import NannyDashboard from './components/NannyDashboard';
 import Login from './components/auth/Login';
-import { NannyForm } from './components/NannyForm';
-import ParentLogin from './components/auth/ParentLogin';
-import NannyLogin from './components/auth/NannyLogin';
 import NannyForm from "./components/NannyForm";
 import ParentForm from './components/ParentForm';
 

@@ -1,8 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 import NannyCard from './NannyCard';
-import { connect } from "net";
 import axios from "axios";
 
 const NannyDashboard = () => {
