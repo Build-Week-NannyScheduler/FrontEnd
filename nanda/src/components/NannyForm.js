@@ -140,12 +140,12 @@ const FormikNannyForm = withFormik({
         timeAvail: Yup.string().oneOf(["Morning", "Afternoon", "Evening", "Overnight"]),
         
     }),
-    handleSubmit(values, {setNanny, nanny}) { 
-        axios.post('https://nannytracker2.herokuapp.com/user/nanny', values) 
-              .then(res => console.log(res.data)) 
+    // handleSubmit(values, {setNanny, nanny}) { 
+    //     axios.post('https://nannytracker2.herokuapp.com/user/nanny', values) 
+    //           .then(res => console.log(res.data)) 
               
-            //   .catch(err => console.log(err.response));
-        }
+    //         //   .catch(err => console.log(err.response));
+    //     }
 })(NannyForm);
 
 

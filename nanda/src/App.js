@@ -8,6 +8,7 @@ import NannyDashboard from './components/NannyDashboard';
 import Login from './components/auth/Login';
 import NannyForm from "./components/NannyForm";
 import ParentForm from './components/ParentForm';
+import Navigator from './components/auth/Navigator';
 
 import './App.css';
 
@@ -16,9 +17,13 @@ function App() {
     <div className="App">
       <Router>
       <Link to="/">NANDA</Link>
+      <Navigator />
         <Switch>
-          <PrivateRoute exact path='/protected/nanny' component={NannyDashboard} />
-          <PrivateRoute exact path='/protected/parent' component={ParentDashboard} />
+          <PrivateRoute exact path='/protected/nanny/' component={NannyDashboard} />
+          <PrivateRoute exact path='/protected/parent/' component={ParentDashboard} />
+        
+          {/* <PrivateRoute exact path='/protected/nanny/' render={() => <NannyDashboard />} />
+          <PrivateRoute exact path='/protected/parent/' render={() => <ParentDashboard />} /> */}
           <Route exact path="/protected" component={ChoicePage} />
           <Route exact path="/" component={Login} />
           <Route path='/signup' component={SignUp} />          

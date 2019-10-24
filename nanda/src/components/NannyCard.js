@@ -1,7 +1,4 @@
-import React, {useState} from 'react';
-import { connect } from "net";
-import "../App.css";
-import axios from "axios";
+import React from 'react';
 
 
 const NannyCard = (props) => {

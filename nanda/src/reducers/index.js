@@ -13,29 +13,22 @@ import { START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE,
 
 const initialState = {
     isFetching: false,
-    updateParent: false,
-    updateNanny: false,
-    deleteParent: false,
-    deleteNanny: false,
-    nannyRequest: false,
-    nannyAccept: null,
+    isPosting: false,
+    isUpdating: false,
+    isDeleting: false,
     error: '',
     nannies: [{
         name: "",
         email: "",
         zipcode: "",
         timeAvail: "",
-        canDrive: false,
-        approveContact: null,
-        id: ""
+        canDrive: false
     }],
     parents: [{
         name: "",
-        numKids: 0,
         email: "",
-        zipcode: "",
-        nannyRequest: false,
-        id: ""
+        zip_code: "",
+        kids: 0
     }],
 };
 
@@ -72,7 +65,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 isFetching: false,
                 error: '',
-                parent: action.payload
+                parents: [...action.payload]
             };
         case FETCH_PARENT_FAILURE:
             return {
@@ -84,60 +77,60 @@ const reducer = (state = initialState, action) => {
         case POST_PARENT:
             return {
                 ...state,
-                updateParent: true,
+                isPosting: true,
                 error: ''
             };
         case POST_PARENT_SUCCESS:
             return {
                 ...state,
-                updateParent: false,
+                isPosting: false,
                 error: '',
-                parent: action.payload
+                parents: [...state.parents, ...action.payload]
             };
         case POST_PARENT_FAILURE:
             return {
                 ...state,
-                updateParent: false,
+                isPosting: false,
                 error: action.payload
             };
 
         case UPDATE_PARENT:
             return {
                 ...state,
-                updateParent: true,
+                isUpdating: true,
                 error: ''
             };
         case UPDATE_PARENT_SUCCESS:
             return {
                 ...state,
-                updateParent: false,
+                isUpdating: false,
                 error: '',
-                parent: action.payload
+                parents: [...action.payload]
             };
         case UPDATE_PARENT_FAILURE:
             return {
                 ...state,
-                updateParent: false,
+                isUpdating: false,
                 error: action.payload
             };
     
         case DELETE_PARENT:
             return {
                 ...state,
-                deleteParent: true,
+                isDeleting: true,
                 error: ''
             };
         case DELETE_PARENT_SUCCESS:
             return {
                 ...state,
-                deleteParent: false,
+                isDeleting: false,
                 error: '',
-                data: action.payload
+                parents: [...!action.payload]
             };
         case DELETE_PARENT_FAILURE:
             return {
                 ...state,
-                deleteParent: false,
+                isDeleting: false,
                 error: action.payload
             };
 
@@ -152,7 +145,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 isFetching: false,
                 error: '',
-                nannies: action.payload
+                nannies: [...action.payload]
             };
         case FETCH_NANNY_FAILURE:
             return {
@@ -165,60 +158,60 @@ const reducer = (state = initialState, action) => {
         case POST_NANNY:
             return {
                 ...state,
-                updateNanny: true,
+                isPosting: true,
                 error: ''
             };
         case POST_NANNY_SUCCESS:
             return {
                 ...state,
-                updateNanny: false,
+                isPosting: false,
                 error: '',
-                nanny: action.payload
+                nannies: [...action.payload]
             };
         case POST_NANNY_FAILURE:
             return {
                 ...state,
-                updateNanny: false,
+                isPosting: false,
                 error: action.payload
             };
     
         case UPDATE_NANNY:
             return {
                 ...state,
-                updateNanny: true,
+                isUpdating: true,
                 error: ''
             };
         case UPDATE_NANNY_SUCCESS:
             return {
                 ...state,
-                updateNanny: false,
+                isUpdating: false,
                 error: '',
-                nanny: action.payload
+                nannnies: [...action.payload]
             };
         case UPDATE_NANNY_FAILURE:
             return {
                 ...state,
-                updateNanny: false,
+                isUpdating: false,
                 error: action.payload
             };
     
         case DELETE_NANNY:
             return {
                 ...state,
-                deleteNanny: true,
+                isDeleting: true,
                 error: ''
             };
         case DELETE_NANNY_SUCCESS:
             return {
                 ...state,
-                deleteNanny: false,
+                isDeleting: false,
                 error: '',
-                nanny: action.payload
+                nannies: [...action.payload]
             };
         case DELETE_NANNY_FAILURE:
             return {
                 ...state,
-                deleteNanny: false,
+                isDeleting: false,
                 error: action.payload
             };
         default:

@@ -50,72 +50,77 @@ export const DELETE_NANNY_FAILURE  = 'DELETE_NANNY_FAILURE';
 
 export const fetchUser = () => dispatch => {
     dispatch({ type: START_FETCHING });
-    axiosWithAuth
+    axiosWithAuth()
         .get('/auth/')
         .then(res => dispatch({ type: FETCH_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: FETCH_FAILURE, payload: err.response }));
 };
 
-export const registerParent = () => dispatch => {
+export const registerParent = (props, newParent) => dispatch => {
     dispatch({ type: POST_PARENT });
-    axiosWithAuth
-        .get('/user/parent')
-        .then(res => dispatch({ type: POST_PARENT_SUCCESS, payload: res.data }))
+    axiosWithAuth()
+        .post('/user/parent', newParent)
+        .then(res => {
+            console.log("Back from registration", res)
+            dispatch({ type: POST_PARENT_SUCCESS, payload: res.data })
+            props.history.push('/protected/parent')
+        })
         .catch(err => dispatch({ type: POST_PARENT_FAILURE, payload: err.response }));
 };
 
 export const fetchParent = () => dispatch => {
-    dispatch({ type: FETCH_NANNY });
-    axiosWithAuth
-        .get('/auth/')
-        .then(res => dispatch({ type: FETCH_NANNY_SUCCESS, payload: res.data }))
-        .catch(err => dispatch({ type: FETCH_NANNY_FAILURE, payload: err.response }));
+    dispatch({ type: FETCH_PARENT });
+    axiosWithAuth()
+        .get('/user/parent')
+        .then(res => dispatch({ type: FETCH_PARENT_SUCCESS, payload: res.data }))
+        .catch(err => dispatch({ type: FETCH_PARENT_FAILURE, payload: err.response }));
 };
  
 export const editParent = id => dispatch => {
     dispatch({ type: UPDATE_PARENT })
-    axiosWithAuth
-        .post('/')
-        .then(res => dispatch({ type: UPDATE_NANNY_SUCCESS, payload: res.data }))
+    axiosWithAuth()
+        .put('/user/parent/:id', id)
+        .then(res => dispatch({ type: UPDATE_PARENT_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: UPDATE_PARENT_FAILURE, payload: err.response }));
 };
 
 export const deleteParent = id => dispatch => {
     dispatch({ type: DELETE_PARENT })
-    axiosWithAuth
-        .delete('/')
+    axiosWithAuth()
+        .delete('/user/parent/:id', id)
         .then(res => dispatch({ type: DELETE_PARENT_FAILURE, payload: res.data }))
         .catch(err => dispatch({ type: DELETE_PARENT_FAILURE, payload: err.response }));
 };
 
 export const registerNannie = () => dispatch => {
     dispatch({ type: POST_NANNY });
-    axiosWithAuth
-        .get('/user/nanny')
+    axiosWithAuth()
+        .post('/user/nanny')
         .then(res => dispatch({ type: POST_NANNY_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: POST_NANNY_FAILURE, payload: err.response }));
 };
 
-export const fetchNannies = () => dispatch => {
+export const fetchNanny = (id) => dispatch => {
+    console.log("At least FETCH NANNY getting called!");
     dispatch({ type: FETCH_NANNY });
-    axiosWithAuth
-        .get('/auth/')
-        .then(res => dispatch({ type: FETCH_SUCCESS, payload: res.data }))
-        .catch(err => dispatch({ type: FETCH_FAILURE, payload: err.response }));
+    axiosWithAuth()
+        .get('/user/nanny/${id}', id)
+        .then(res => dispatch({ type: FETCH_NANNY_SUCCESS, payload: res.data }))
+        .catch(err => dispatch({ type: FETCH_NANNY_FAILURE, payload: err.response }));
 };
  
 export const editNanny = id => dispatch => {
     dispatch({ type: UPDATE_NANNY })
-    axiosWithAuth
-        .post('/')
+    axiosWithAuth()
+        .put('/user/nanny/:id', id)
         .then(res => dispatch({ type: UPDATE_NANNY_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: UPDATE_NANNY_FAILURE, payload: err.response }));
 };
 
 export const deleteNanny = id => dispatch => {
     dispatch({ type: DELETE_NANNY })
-    axiosWithAuth
-        .delete('/')
+    axiosWithAuth()
+        .delete('/user/nanny/:id', id)
         .then(res => dispatch({ type: DELETE_NANNY_SUCCESS, payload: res.data }))
         .catch(err => dispatch({ type: DELETE_NANNY_FAILURE, payload: err.response }));
 };
