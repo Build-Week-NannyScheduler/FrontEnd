@@ -2,52 +2,54 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axiosWithAuth from '../../utils/axiosWithAuth';
 
-
-import NannyDashboard from '../NannyDashboard';
-
 const Login = props => {
-    const [form, setForm] = useState({
+    const [user, setUser] = useState({
         username: "",
         password: ""
     });
 
     const handleChange = e => {
-        setForm({...form, [e.target.name]: e.target.value })
+        setUser({...user, [e.target.name]: e.target.value })
     };
 
-    const Login = e => {
+    const handleSubmit = e => {
         e.preventDefault();
         axiosWithAuth()
-            .post("/auth/login", form)
-            .then(res => {
-                console.log(res);
-                localStorage.setItem("token", res.data.payload);
-                props.history.push("/choice");
+            .post(
+                "/auth/login",
+                user
+            )
+            .then(response => {
+                console.log("user", response);
+                localStorage.setItem("token", response.data.token);
+                props.history.push("/protected");
             })
-            .catch(err => {
-                console.log(err.response);
-                setForm({
-                    username: "",
-                    password: ""
+            .catch(error => {
+                // console.log("error", error.response);
+                setUser({
+                username: "",
+                password: ""
                 });
             });
+
+    
     };
 
     return (
         <div className="card">
             <h2>Login</h2>
-            <form onSubmit={Login}>
+            <form onSubmit={handleSubmit}>
                 <input
                     type="text"
                     name="username"
                     onChange={handleChange}
-                    value={form.username}
+                    value={user.username}
                 />
                 <input
                     type="password"
                     name="password"
                     onChange={handleChange}
-                    value={form.password}
+                    value={user.password}
                 />
                 <button type="submit">Login</button>
             </form>

@@ -19,7 +19,7 @@ function App() {
         <Switch>
           <PrivateRoute exact path='/protected/nanny' component={NannyDashboard} />
           <PrivateRoute exact path='/protected/parent' component={ParentDashboard} />
-          <Route exact path="/choice" component={ChoicePage} />
+          <Route exact path="/protected" component={ChoicePage} />
           <Route exact path="/" component={Login} />
           <Route path='/signup' component={SignUp} />          
           <Route path='/parentsignup' render={() => <ParentForm />}/>
